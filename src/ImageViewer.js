@@ -4,20 +4,20 @@ export class ImageViewer extends Component {
 
 	constructor(props) {
 		super(props);
-		this.handleChange = this.handleChange.bind(this);
-		this.state = { imageFile: '' };
+		this.state = { imageFile: props.imageFile };
 	}
 
+	setImage(imageFile) {
+		const imageSrc = URL.createObjectURL(imageFile);
+		this.setState({ imageFile: imageSrc });
+	}
 	render() {
 		return (
-			<div className="input-div">
-				<label>Load image</label>
-				<input onChange={this.handleFileSelected} type="file"></input>
+			<div className="image-viewer">
+				<img id="loadedImage" src={this.state.imageFile} alt=""/>
 			</div>
 		);
 	}
 
-	handleFileSelected(e) {
-		this.setState({ imageFile: e.target.files[0] });
-	}
+
 }

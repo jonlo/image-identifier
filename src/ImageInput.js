@@ -4,8 +4,12 @@ export class ImageInput extends Component {
 
 	constructor(props) {
 		super(props);
-		this.handleChange = this.handleChange.bind(this);
-		this.state = { imageFile: '' };
+		this.handleFileSelected = this.handleFileSelected.bind(this);
+		this.handleFile = props.handler;
+		this.state = {
+			imageFile: props.imageFile,
+			handler: props.handler
+		};
 	}
 
 	render() {
@@ -18,6 +22,7 @@ export class ImageInput extends Component {
 	}
 
 	handleFileSelected(e) {
-		this.setState({ imageFile: e.target.files[0] });
+		this.handleFile (e.target.files[0]);
+		// this.setState({ imageFile: e.target.files[0] });
 	}
 }
