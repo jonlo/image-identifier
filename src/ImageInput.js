@@ -23,6 +23,5 @@ export class ImageInput extends Component {
 
 	handleFileSelected(e) {
 		this.handleFile (e.target.files[0]);
-		// this.setState({ imageFile: e.target.files[0] });
 	}
 }
